@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.P-mode{
+    opacity: 0; /* Inicialmente invisible */
+    transition: opacity 0.3s ease-in-out;
+}
+
+.Sun-icon:hover .P-mode {
+    opacity: 1;
+}
