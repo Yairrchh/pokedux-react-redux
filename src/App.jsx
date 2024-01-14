@@ -1,7 +1,8 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setPokemons } from './actions'
+import { getPokemonsWithDetail } from './actions'
 import { Searcher } from './components/Searcher'
+import { Spinner } from './components/spinner'
 import { PokemonList } from './components/PokemonList'
 import { SunIcon } from '@heroicons/react/24/solid'
 import { Col } from 'antd'
@@ -17,7 +18,7 @@ function App() {
   useEffect(() =>{
     const fetchPokemons = async () => {
       const pokemonsRes = await getPokemons();
-      dispatch(setPokemons(pokemonsRes));
+      dispatch(getPokemonsWithDetail(pokemonsRes));
     };
     fetchPokemons();
   }, []);
@@ -34,6 +35,7 @@ function App() {
         <Col span={8} offset={8}>
           <Searcher />
         </Col>
+        <Spinner/>
         <PokemonList pokemons={pokemons}/>
     </div>
   )

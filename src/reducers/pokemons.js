@@ -2,6 +2,7 @@ import { SET_POKEMONS } from "../actions/types"
 
 const initialState = {
     pokemons: [],
+    loading: false,
 
 };
 
