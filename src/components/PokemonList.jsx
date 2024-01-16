@@ -8,6 +8,8 @@ const PokemonList = ({pokemons}) => {
                 return <PokemonCard name={pokemon.name} key={pokemon.name}
                 image={pokemon.sprites.other.dream_world.front_default}
                 types={pokemon.types}
+                id={pokemon.id}
+                isFavorite={pokemon.favorite}
                 />;
             })}
         </div>

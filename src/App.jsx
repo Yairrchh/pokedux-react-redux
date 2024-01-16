@@ -13,6 +13,7 @@ import { getPokemons } from './api'
 function App() {
 
   const pokemons = useSelector((state) => state.pokemons);
+  const loading = useSelector((state) => state.loading);
   const dispatch = useDispatch();
 
   useEffect(() =>{
@@ -35,8 +36,9 @@ function App() {
         <Col span={8} offset={8}>
           <Searcher />
         </Col>
-        <Spinner/>
-        <PokemonList pokemons={pokemons}/>
+          {loading ?
+            <Spinner/> : <PokemonList pokemons={pokemons}/>
+            }
     </div>
   )
 }
