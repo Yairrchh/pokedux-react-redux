@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { getPokemonsWithDetail } from './actions'
+import { getIn } from "immutable";
 import { Searcher } from './components/Searcher'
 import { Spinner } from './components/spinner'
 import { PokemonList } from './components/PokemonList'
@@ -12,8 +13,8 @@ import { getPokemons } from './api'
 
 function App() {
 
-  const pokemons = useSelector((state) => state.pokemons);
-  const loading = useSelector((state) => state.loading);
+  const pokemons = useSelector((state) => getIn(state, ['data', 'pokemons'], shallowEqual)).toJS();
+  const loading = useSelector((state) => getIn(state, ['ui', 'loading']))
   const dispatch = useDispatch();
 
   useEffect(() =>{
