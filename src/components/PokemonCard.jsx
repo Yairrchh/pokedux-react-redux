@@ -1,7 +1,6 @@
 import { StarIcon } from '@heroicons/react/24/solid'
 import { useDispatch } from 'react-redux'
-import { setFavorite } from '../actions'
-
+import { setFavorite } from '../slices/dataSlice'
 // import { StarOutlined } from "@ant-design/icons";
 // import { Card, Col } from "antd";
 // import Meta from "antd/es/card/Meta";
